@@ -34,7 +34,7 @@ const removeContact = async (id) => {
   let allContacts = await listContacts();
   const index = allContacts.findIndex((contact) => contact.id === id);
   if (index === -1) {
-    return `Contact with id ${id} does not exist.`.red;
+    return null;
   }
   const [removedContact] = allContacts.splice(index, 1);
   await fs.writeFile(contactsPath, JSON.stringify(allContacts, null, 2));
