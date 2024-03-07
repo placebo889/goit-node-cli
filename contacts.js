@@ -38,7 +38,7 @@ const removeContact = async (id) => {
   }
   const [removedContact] = allContacts.splice(index, 1);
   await fs.writeFile(contactsPath, JSON.stringify(allContacts, null, 2));
-  return `Contact '${removedContact.name}' has been successfully removed.`.green;
+  return removedContact;
 };
 
 export { listContacts, getContactById, removeContact, addContact };
